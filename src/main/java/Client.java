@@ -8,7 +8,7 @@ public class Client {
     private JFrame frame;
 
     Client(final ActionsHandler handler, boolean visibleOnStart){
-        frame = new JFrame("Login");
+        frame = new JFrame("Client");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

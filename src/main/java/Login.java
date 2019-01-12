@@ -13,8 +13,8 @@ public class Login {
     private JPasswordField passwordTextField;
     private JButton connectButton;
     private JPanel panel;
-    private JPasswordField ipTextField;
-    private JPasswordField portTextField;
+    private JTextField ipTextField;
+    private JTextField portTextField;
     private JFrame frame;
 
     Login(final ActionsHandler handler, boolean visibleOnStart){
@@ -22,41 +22,55 @@ public class Login {
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setVisible(visibleOnStart);
+        frame.getRootPane().setDefaultButton(connectButton);
 
-        connectButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String str = (String) comboBox1.getSelectedItem();
-                DataConnection dc;
+        connectButton.addActionListener(e -> {
+            String str = (String) comboBox1.getSelectedItem();
+            DataConnection dc;
 
-                if(str.equals("Manager")) {
-                    dc = new DataConnection(
-                            ipTextField.getSelectedText(),
-                            portTextField.getSelectedText(),
-                            "Hardcoded",
-                            "Manager",
-                            passwordTextField.getSelectedText()
-                    );
+            if(str.equals("Manager")) {
+                String pass = String.valueOf(passwordTextField.getPassword());
+                dc = new DataConnection(
+                        ipTextField.getText(),
+                        portTextField.getText(),
+                        "test",
+                        "Manager",
+                        passwordTextField.getPassword()
+                );
 
-                    handler.requestConnection(UserType.MANAGER, dc);
-                }
-                else if(str.equals("Passenger")) {
-                    dc = new DataConnection(
-                            ipTextField.getSelectedText(),
-                            portTextField.getSelectedText(),
-                            "Hardcoded",
-                            "Passenger",
-                            passwordTextField.getSelectedText()
-                    );
+                handler.requestConnection(UserType.MANAGER, dc);
+            }
+            else if(str.equals("Passenger")) {
+                String pass = String.valueOf(passwordTextField.getPassword());
+                dc = new DataConnection(
+                        ipTextField.getText(),
+                        portTextField.getText(),
+                        "test",
+                        "Passenger",
+                        passwordTextField.getPassword()
+                );
 
-                    handler.requestConnection(UserType.USER, dc);
-                }
+                handler.requestConnection(UserType.USER, dc);
+            }
+            else if(str.equals("Root")) {
+                String pass = String.valueOf(passwordTextField.getPassword());
+                dc = new DataConnection(
+                        ipTextField.getText(),
+                        portTextField.getText(),
+                        "test",
+                        "root",
+                        passwordTextField.getPassword()
+                );
+
+                handler.requestConnection(UserType.ROOT, dc);
             }
         });
 
+        setVisible(visibleOnStart);
     }
 
     void setVisible(boolean vis){
         frame.setVisible(vis);
+        passwordTextField.requestFocusInWindow();
     }
 }

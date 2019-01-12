@@ -1,3 +1,5 @@
 public enum UserType {
-    MANAGER,USER
+    MANAGER, ROOT, USER
+
+
 }

@@ -39,7 +39,7 @@
             </constraints>
             <properties>
               <model>
-                <item value="Admin"/>
+                <item value="Root"/>
                 <item value="Manager"/>
                 <item value="Passenger"/>
               </model>
@@ -97,14 +97,14 @@
               <text value="Port"/>
             </properties>
           </component>
-          <component id="232e5" class="javax.swing.JPasswordField" binding="portTextField">
+          <component id="36913" class="javax.swing.JTextField" binding="portTextField">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="3306"/>
             </properties>
           </component>
         </children>
@@ -125,14 +125,14 @@
               <text value="Ip"/>
             </properties>
           </component>
-          <component id="a6cbd" class="javax.swing.JPasswordField" binding="ipTextField">
+          <component id="b53d8" class="javax.swing.JTextField" binding="ipTextField">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="localhost"/>
             </properties>
           </component>
         </children>

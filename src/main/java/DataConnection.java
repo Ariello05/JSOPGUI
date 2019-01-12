@@ -4,7 +4,7 @@ public class DataConnection{
     private String port;
     private String user;
     private String db;
-    private String password;
+    private char[] password;
 
         /**
          *
@@ -14,7 +14,7 @@ public class DataConnection{
          * @param user loginName
          * @param password password
          */
-    DataConnection(String ip, String port, String db, String user, String password) {
+    DataConnection(String ip, String port, String db, String user, char[] password) {
         this.ip = ip;
         this.port = port;
         this.db = db;
@@ -38,7 +38,7 @@ public class DataConnection{
         return db;
     }
 
-    public String getPassword() {
+    public char[] getPassword() {
         return password;
     }
 

@@ -8,7 +8,7 @@ public class Admin {
     private JFrame frame;
 
     Admin(final ActionsHandler handler, boolean visibleOnStart){
-        frame = new JFrame("Login");
+        frame = new JFrame("Admin");
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

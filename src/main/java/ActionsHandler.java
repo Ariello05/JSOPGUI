@@ -27,11 +27,17 @@ public class ActionsHandler {
             return;
 
         switch (type){
+            case ROOT:
+                    if(db.connect(dc))
+                        gui.focusOnAdminPanel();
+                break;
             case MANAGER:
-                    gui.focusOnAdminPanel();
+                   if(db.connect(dc))
+                       gui.focusOnAdminPanel();
                 break;
             case USER:
-                    gui.focusOnClientPanel();
+                   if(db.connect(dc))
+                       gui.focusOnClientPanel();
                 break;
         }
     }
