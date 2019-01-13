@@ -5,6 +5,12 @@ import java.awt.event.ActionListener;
 public class Client {
     private JPanel panel;
     private JButton backButton;
+    private JComboBox comboBox1;
+    private JComboBox comboBox2;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JButton generateButton;
+    private JTabbedPane tabbedPane1;
     private JFrame frame;
 
     Client(final ActionsHandler handler, boolean visibleOnStart){

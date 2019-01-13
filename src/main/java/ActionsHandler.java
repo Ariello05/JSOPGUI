@@ -29,7 +29,7 @@ public class ActionsHandler {
         switch (type){
             case ROOT:
                     if(db.connect(dc))
-                        gui.focusOnAdminPanel();
+                        gui.focusOnClientPanel();
                 break;
             case MANAGER:
                    if(db.connect(dc))
