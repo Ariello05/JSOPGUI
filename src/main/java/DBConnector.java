@@ -10,6 +10,14 @@ public class DBConnector {
         connect(dc);
     }
 
+    void dropConnection(){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            System.out.println("Unsuccessful connection");
+        }
+    }
+
     boolean connect(DataConnection dc){
         try {
             conn = DriverManager.getConnection(

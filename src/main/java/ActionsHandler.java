@@ -44,6 +44,7 @@ public class ActionsHandler {
 
     public void goToMenu(){
         gui.focusOnLoginPanel();
+        db.dropConnection();
     }
 }
 

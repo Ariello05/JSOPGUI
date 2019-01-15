@@ -15,6 +15,7 @@ public class Login {
     private JPanel panel;
     private JTextField ipTextField;
     private JTextField portTextField;
+    private JTextField dataBaseName;
     private JFrame frame;
 
     Login(final ActionsHandler handler, boolean visibleOnStart){
@@ -33,7 +34,7 @@ public class Login {
                 dc = new DataConnection(
                         ipTextField.getText(),
                         portTextField.getText(),
-                        "test",
+                        dataBaseName.getText(),
                         "Manager",
                         passwordTextField.getPassword()
                 );
@@ -45,7 +46,7 @@ public class Login {
                 dc = new DataConnection(
                         ipTextField.getText(),
                         portTextField.getText(),
-                        "test",
+                        dataBaseName.getText(),
                         "Passenger",
                         passwordTextField.getPassword()
                 );
@@ -57,7 +58,7 @@ public class Login {
                 dc = new DataConnection(
                         ipTextField.getText(),
                         portTextField.getText(),
-                        "test",
+                        dataBaseName.getText(),
                         "root",
                         passwordTextField.getPassword()
                 );
