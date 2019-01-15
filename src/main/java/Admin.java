@@ -27,7 +27,7 @@ public class Admin {
         callButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                handler.
+                handler.callQuery(queryTextField.getText());
             }
         });
     }
