@@ -6,9 +6,9 @@ public class Admin {
     private JButton backButton;
     private JPanel panel;
     private JTabbedPane tabbedPane1;
-    private JComboBox comboBox1;
+    private JTextField queryTextField;
     private JButton callButton;
-    private JTable table1;
+    private JTable res;
     private JFrame frame;
 
     Admin(final ActionsHandler handler, boolean visibleOnStart){
@@ -24,6 +24,12 @@ public class Admin {
             }
         });
 
+        callButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handler.
+            }
+        });
     }
 
     void setVisible(boolean vis){

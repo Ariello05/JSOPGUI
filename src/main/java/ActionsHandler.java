@@ -22,6 +22,10 @@ public class ActionsHandler {
         System.out.println(si);
     }
 
+    public void callQuery(String query) {
+
+    }
+
     public void requestConnection(UserType type, DataConnection dc){
         if(!set)
             return;
