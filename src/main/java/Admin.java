@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 public class Admin {
     private JButton backButton;
     private JPanel panel;
+    private JTabbedPane tabbedPane1;
+    private JComboBox comboBox1;
+    private JButton callButton;
+    private JTable table1;
     private JFrame frame;
 
     Admin(final ActionsHandler handler, boolean visibleOnStart){
