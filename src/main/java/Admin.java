@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 public class Admin {
     private JButton backButton;
     private JPanel panel;
+    private JTabbedPane tabbedPane1;
+    private JTextField queryTextField;
+    private JButton callButton;
+    private JTable res;
     private JFrame frame;
 
     Admin(final ActionsHandler handler, boolean visibleOnStart){
@@ -20,6 +24,12 @@ public class Admin {
             }
         });
 
+        callButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                handler.callQuery(queryTextField.getText());
+            }
+        });
     }
 
     void setVisible(boolean vis){
