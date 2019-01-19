@@ -23,7 +23,7 @@ public class ActionsHandler {
     }
 
     public void callQuery(String query) {
-
+        db.callQuery(query);
     }
 
     public void requestConnection(UserType type, DataConnection dc){
@@ -32,22 +32,30 @@ public class ActionsHandler {
 
         switch (type){
             case ROOT:
-                    if(db.connect(dc))
-                        gui.focusOnClientPanel();
+                    if(db.connect(dc)){
+                        gui.showAdminPanel(true);
+                        gui.showClientPanel(true);
+                    }
+
                 break;
             case MANAGER:
-                   if(db.connect(dc))
-                       gui.focusOnAdminPanel();
+                   if(db.connect(dc)){
+                       gui.showAdminPanel(true);
+                       gui.showClientPanel(true);
+                   }
                 break;
             case USER:
-                   if(db.connect(dc))
-                       gui.focusOnClientPanel();
-                break;
+                   if(db.connect(dc)){
+                      gui.showClientPanel(true);
+                   }
+                   break;
         }
     }
 
     public void goToMenu(){
-        gui.focusOnLoginPanel();
+        gui.showAdminPanel(false);
+        gui.showClientPanel(false);
+        gui.showLoginPanel(true);
         db.dropConnection();
     }
 }
