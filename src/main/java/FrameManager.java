@@ -18,22 +18,16 @@ public class FrameManager {
         adminPanel = new Admin(handler,false);
     }
 
-    void focusOnAdminPanel(){
-        adminPanel.setVisible(true);
-        clientPanel.setVisible(false);
-        loginPanel.setVisible(false);
+    void showAdminPanel(boolean bool){
+        adminPanel.setVisible(bool);
     }
 
-    void focusOnClientPanel(){
-        adminPanel.setVisible(false);
-        clientPanel.setVisible(true);
-        loginPanel.setVisible(false);
+    void showClientPanel(boolean bool){
+        clientPanel.setVisible(bool);
     }
 
-    void focusOnLoginPanel(){
-        adminPanel.setVisible(false);
-        clientPanel.setVisible(false);
-        loginPanel.setVisible(true);
+    void showLoginPanel(boolean bool){
+        loginPanel.setVisible(bool);
     }
 
 }
