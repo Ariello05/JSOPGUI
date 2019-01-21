@@ -35,7 +35,7 @@ public class Login {
                         ipTextField.getText(),
                         portTextField.getText(),
                         dataBaseName.getText(),
-                        "Manager",
+                        "manager",
                         passwordTextField.getPassword()
                 );
 
@@ -47,7 +47,7 @@ public class Login {
                         ipTextField.getText(),
                         portTextField.getText(),
                         dataBaseName.getText(),
-                        "Passenger",
+                        "passenger",
                         passwordTextField.getPassword()
                 );
 

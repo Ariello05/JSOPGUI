@@ -1,3 +1,6 @@
+
+import java.sql.ResultSet;
+
 public class ActionsHandler {
     private FrameManager gui;
     private DBConnector db;
@@ -22,8 +25,8 @@ public class ActionsHandler {
         System.out.println(si);
     }
 
-    public void callQuery(String query) {
-        db.callQuery(query);
+    public ResultSet callQuery(String query) {
+        return db.callQuery(query);
     }
 
     public void requestConnection(UserType type, DataConnection dc){

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.sql.*;
 
 public class DBConnector {
@@ -18,15 +19,25 @@ public class DBConnector {
         }
     }
 
-    void callQuery(String query){
+    ResultSet callQuery(String query){
         try {
+            System.out.println("Calling");
             Statement stmt = conn.createStatement();
             ResultSet set = stmt.executeQuery(query);
 
+            //JTable table = new JTable(new TableBuilder().buildTableModel(set));
+            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+
+            //if (!set.next() ) {
+            //    return  null;
+            //}
+
+            return set;
         } catch (SQLException e) {
+
             e.printStackTrace();
         }
-
+        return null;
 
     }
 
