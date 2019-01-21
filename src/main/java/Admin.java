@@ -51,6 +51,20 @@ public class Admin {
                 }
             }
         });
+        BusAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("INSERT INTO pojazd VALUES(\'");
+                sb.append(busID.getText());
+                sb.append("\',\'");
+                sb.append(busType.getText());
+                sb.append("\');");
+                if(handler.updateQuery(sb.toString())){
+                    System.out.println("Success!");
+                };
+            }
+        });
     }
 
     void setVisible(boolean vis){

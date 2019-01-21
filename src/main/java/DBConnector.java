@@ -57,6 +57,24 @@ public class DBConnector {
 
     }
 
+    public boolean updateQuery(String query) {
+        try {
+            System.out.println("Calling");
+            Statement stmt = conn.createStatement();
+            int i = stmt.executeUpdate(query);
+            if(i >= 1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+            return  false;
+        }
+    }
+
     /*
     void dummy(){
         Statement stmt = conn.createStatement();

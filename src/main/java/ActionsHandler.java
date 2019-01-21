@@ -29,6 +29,8 @@ public class ActionsHandler {
         return db.callQuery(query);
     }
 
+    public boolean updateQuery(String query){return db.updateQuery(query);}
+
     public void requestConnection(UserType type, DataConnection dc){
         if(!set)
             return;
