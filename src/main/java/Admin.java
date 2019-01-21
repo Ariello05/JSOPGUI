@@ -23,6 +23,7 @@ public class Admin {
     private JTextField przystanekID;
     private JButton przystanekAdd;
     private JTextField przystanekNazwa;
+    private JRadioButton radioQuery;
     private JFrame frame;
 
     Admin(final ActionsHandler handler, boolean visibleOnStart){
@@ -41,13 +42,24 @@ public class Admin {
         callButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ResultSet rs = handler.callQuery(queryTextField.getText());
-                TableBuilder tb = new TableBuilder();
-                try {
-                    table1.setModel(tb.buildTableModel(rs));
+                if(radioQuery.isSelected()){
+                    ResultSet rs = handler.callQuery(queryTextField.getText());
+                    TableBuilder tb = new TableBuilder();
+                    try {
+                        table1.setModel(tb.buildTableModel(rs));
 
-                } catch (SQLException e1) {
-                    e1.printStackTrace();//inform client of problem
+                    } catch (SQLException e1) {
+                        e1.printStackTrace();//inform client of problem
+                    }
+                }else{
+
+                    boolean res = handler.updateQuery(queryTextField.getText());
+                    if(res){
+                        System.out.println("Success!");
+                    }
+                    else{
+                       System.out.println("No rows changed!");
+                    }
                 }
             }
         });
@@ -62,7 +74,59 @@ public class Admin {
                 sb.append("\');");
                 if(handler.updateQuery(sb.toString())){
                     System.out.println("Success!");
-                };
+                }
+                else{
+                    System.out.println("No rows changed!");
+                }
+            }
+        });
+        kierowcaAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("INSERT INTO kierowca VALUES(\'");
+                sb.append(kierowcaID.getText());
+                sb.append("\',\'");
+                sb.append(kierowcaNazwa.getText());
+                sb.append("\');");
+                if(handler.updateQuery(sb.toString())){
+                    System.out.println("Success!");
+                }
+                else{
+                    System.out.println("No rows changed!");
+                }
+            }
+        });
+        liniaAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("INSERT INTO linia VALUES(");
+                sb.append(liniaID.getText());
+                sb.append(");");
+                if(handler.updateQuery(sb.toString())){
+                    System.out.println("Success!");
+                }
+                else{
+                    System.out.println("No rows changed!");
+                }
+            }
+        });
+        przystanekAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("INSERT INTO przystanek VALUES(\'");
+                sb.append(przystanekID.getText());
+                sb.append("\',\'");
+                sb.append(przystanekNazwa.getText());
+                sb.append("\');");
+                if(handler.updateQuery(sb.toString())){
+                    System.out.println("Success!");
+                }
+                else{
+                    System.out.println("No rows changed!");
+                }
             }
         });
     }
