@@ -1,23 +1,23 @@
-CREATE DATABASE `JSOPDB`;
+CREATE DATABASE IF NOT EXISTS `JSOPDB`;
 
-CREATE TABLE `Przystanek` (
+CREATE TABLE IF NOT EXISTS `Przystanek` (
 	`ID_Przystanek` INT NOT NULL AUTO_INCREMENT,
 	`Nazwa` VARCHAR(44) NOT NULL,
 	PRIMARY KEY (`ID_Przystanek`)
 )
 COMMENT='Fizyczny przystanek'
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB;
 
-CREATE TABLE `Linia` (
+CREATE TABLE  IF NOT EXISTS `Linia` (
 	`ID_Linia` INT NOT NULL,
 	PRIMARY KEY (`ID_Linia`)
 )
 COMMENT='Pomocniczy zbiór dla okrleślenia tras.'
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB;
 
-CREATE TABLE `Trasa` (
+CREATE TABLE  IF NOT EXISTS `Trasa` (
 	`ID_Trasa` INT NOT NULL,
 	`ID_Linia` INT NOT NULL,
 	`ID_Początek` INT NOT NULL,
@@ -27,11 +27,11 @@ CREATE TABLE `Trasa` (
 	CONSTRAINT `FK__przystanek1` FOREIGN KEY (`ID_Początek`) REFERENCES `przystanek` (`ID_Przystanek`),
 	CONSTRAINT `FK__przystanek2` FOREIGN KEY (`ID_Koniec`) REFERENCES `przystanek` (`ID_Przystanek`)
 )
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `Przejazd` (
+CREATE TABLE IF NOT EXISTS `Przejazd` (
 	`ID_Przejazd` INT NOT NULL AUTO_INCREMENT,
 	`PrzystanekA` INT NOT NULL,
 	`PrzystanekB` INT NOT NULL,
@@ -41,11 +41,11 @@ CREATE TABLE `Przejazd` (
 	CONSTRAINT `FK__przystanek_2` FOREIGN KEY (`PrzystanekB`) REFERENCES `przystanek` (`ID_Przystanek`),
 	CONSTRAINT `FK__trasa` FOREIGN KEY (`ID_Trasa`) REFERENCES `trasa` (`ID_Trasa`) 
 )
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `Terminarz` (
+CREATE TABLE IF NOT EXISTS `Terminarz` (
 	`ID_Terminarz` INT(11) NOT NULL AUTO_INCREMENT,
 	`ID_Przejazd` INT(11) NOT NULL,
 	`Przyjazd` TIME NULL DEFAULT NULL,
@@ -54,29 +54,29 @@ CREATE TABLE `Terminarz` (
 	INDEX `FK__przejazd` (`ID_Przejazd`),
 	CONSTRAINT `FK__przejazd` FOREIGN KEY (`ID_Przejazd`) REFERENCES `przejazd` (`ID_Przejazd`)
 )
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `Kierowca` (
+CREATE TABLE IF NOT EXISTS `Kierowca` (
 	`ID_Kierowca` INT NOT NULL AUTO_INCREMENT,
 	`Nazwa` VARCHAR(44) NULL DEFAULT NULL,
 	PRIMARY KEY (`ID_Kierowca`)
 )
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `Pojazd` (
+CREATE TABLE IF NOT EXISTS `Pojazd` (
 	`ID_Pojazd` INT NOT NULL AUTO_INCREMENT,
 	`Typ` VARCHAR(44) NULL,
 	PRIMARY KEY (`ID_Pojazd`)
 )
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
-CREATE TABLE `Przypisania` (
+CREATE TABLE IF NOT EXISTS `Przypisania` (
 	`ID_Przypisanie` INT NOT NULL AUTO_INCREMENT,
 	`ID_Terminarz` INT NOT NULL,
 	`ID_Kierowca` INT NULL,
@@ -86,7 +86,7 @@ CREATE TABLE `Przypisania` (
 	CONSTRAINT `FK__kierowca` FOREIGN KEY (`ID_Kierowca`) REFERENCES `kierowca` (`ID_Kierowca`),
 	CONSTRAINT `FK__pojazd` FOREIGN KEY (`ID_Pojazd`) REFERENCES `pojazd` (`ID_Pojazd`)
 )
-COLLATE='utf8_polish_ci'
+COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB
 ;
 
@@ -103,7 +103,6 @@ DELIMITER ;
 DELIMITER &&
 CREATE PROCEDURE Select_Terminarz(IN przystanek VARCHAR(44), IN czas TIME, IN linia INT)
 BEGIN
-
 	SET @str = CONCAT("SELECT Ter.przyjazd, Ter.odjazd, Ter.linia FROM Przejazd P JOIN Trasa T ON p.ID_Trasa = T.ID_Trasa JOIN 
 		Terminarz Ter ON Ter.ID_Przejazd = P.ID_Przejazd JOIN Przystanek Prz 
         ON P.przystanekA = Prz.ID_Przystanek AND Prz.nazwa = \'",
@@ -176,17 +175,13 @@ DELIMITER ;
 
 
 CREATE USER 'manager'@'localhost' IDENTIFIED BY 'mr2019';
-GRANT INSERT,SELECT,UPDATE,DELETE ON *.* TO 'manager'@'localhost';
+GRANT INSERT,SELECT,UPDATE,DELETE,EXECUTE ON *.* TO 'manager'@'localhost';
 
 CREATE USER 'passenger'@'localhost' IDENTIFIED BY 'pr2019';
-GRANT SELECT ON *.* TO 'passenger'@'localhost';
+GRANT SELECT,EXECUTE ON *.* TO 'passenger'@'localhost';
 
 
 GRANT EXECUTE ON PROCEDURE jsopdb.Select_Terminarz TO 'passenger'@'localhost';
 GRANT EXECUTE ON PROCEDURE jsopdb.Select_CzasJazdy TO 'passenger'@'localhost';
 GRANT EXECUTE ON PROCEDURE jsopdb.Select_Terminarz TO 'manager'@'localhost';
 GRANT EXECUTE ON PROCEDURE jsopdb.Select_CzasJazdy TO 'manager'@'localhost';
-
-CALL generujlinie(5);
-CALL generujkierowcow(5);
-CALL generujprzystanki(5);
