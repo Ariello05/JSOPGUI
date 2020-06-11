@@ -1,4 +1,4 @@
-##DISCLAIMER
+## DISCLAIMER
 DB contains two files;
 * BuildScript, responsible for building database
 * SeedScript, responsible for seeding database (well not really)
