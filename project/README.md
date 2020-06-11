@@ -1,3 +1,4 @@
+[Project description in polish.](https://docs.google.com/document/d/1m6gBfHzQ7q8cX85MlVhKz1w6WBnrMbXmEUzyLSjbUD4/edit?usp=sharing)
 ## DISCLAIMER
 DB contains two files;
 * BuildScript, responsible for building database
@@ -10,4 +11,3 @@ UI in two versions,
 This project was made for practice and it is clearly not finished
 
 so take everything with grain on salt.
-
