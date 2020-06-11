@@ -9,6 +9,6 @@ UI in two versions,
 * Python on SQLAlchemy with some ORM inside
 
 ### DISCLAIMER
-This project was made for practice and it is clearly not finished
+This project was made for practice and never finished
 
 so take everything with grain on salt.
