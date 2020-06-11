@@ -1,0 +1,378 @@
+﻿1.
+	mongoimport --db filmoteka --collection aktorzy --file C:/data/db/aktorzy.json --jsonArray
+	mongoimport --db filmoteka --collection heightnci --file C:/data/db/agenci.json --jsonArray
+	mongoimport --db filmoteka --collection filmy --file C:/data/db/filmy.json --jsonArray
+
+2.
+use filmoteka;
+//random java generation
+	db.aktorzy.insert([ 
+		{imie: 'Eugene', nazwisko: 'Enelope', wiek: 32, wzrost: 154, ulubione: ['Romantic', 'Fiction'] , narodowość: 'Iceland'},
+		{imie: 'Michael', nazwisko: 'Plank', wiek: 53, wzrost: 184, ulubione: 'Comedy', narodowość: 'Portgual'},
+		{imie: 'Bob', nazwisko: 'Enelope', wiek: 52, wzrost: 171, ulubione: 'Horror', narodowość: 'Poland'},
+		{imie: 'Bob', nazwisko: 'Jackson', wiek: 22, wzrost: 182, ulubione: 'Thriller', narodowość: 'Canada'},
+		{imie: 'Michael', nazwisko: 'Hux', wiek: 36, wzrost: 175, ulubione: 'SciFi', narodowość: 'Mexic'},
+		{imie: 'Jack', nazwisko: 'Obama', wiek: 64, wzrost: 158, ulubione: ['Thriller', 'Criminal'] , narodowość: 'Norway'},
+		{imie: 'Eugene', nazwisko: 'Hux', wiek: 25, wzrost: 176, ulubione: 'Fiction', narodowość: 'Canada'},
+		{imie: 'Michael', nazwisko: 'Obama', wiek: 32, wzrost: 158, ulubione: 'Action', narodowość: 'Norway'},
+		{imie: 'Penelope', nazwisko: 'Enelope', wiek: 32, wzrost: 155, ulubione: 'Comedy', narodowość: 'Iceland'},
+		{imie: 'Penelope', nazwisko: 'Blank', wiek: 52, wzrost: 188, ulubione: 'Fiction', narodowość: [{country: 'Russia', state: 'Moscow'}]},
+		{imie: 'Michael', nazwisko: 'Obama', wiek: 54, wzrost: 141, ulubione: ['Horror', 'Comedy'] , narodowość: 'Canada'},
+		{imie: 'Mick', nazwisko: 'Guinness', wiek: 35, wzrost: 140, ulubione: 'Thriller', narodowość: ['Sweden', 'Norway']},
+		{imie: 'Penelope', nazwisko: 'Hux',  wiek: 56, wzrost: 149, ulubione: 'Fiction', narodowość: 'Belgium'},
+		{imie: 'Mick', nazwisko: 'Blank',  wiek: 64, wzrost: 156, ulubione: 'SciFi', narodowość: 'Sweden'},
+		{imie: 'Jessica', nazwisko: 'Plank',  wiek: 56, wzrost: 162, ulubione: 'Horror', narodowość: 'Sweden'},
+		{imie: 'Jennifer', nazwisko: 'Obama',  wiek: 24, wzrost: 176, ulubione: ['Musical', 'Fiction'] , narodowość: 'Ireland'},
+		{imie: 'Jennifer', nazwisko: 'Hux',  wiek: 27, wzrost: 154, ulubione: 'Romantic', narodowość: 'Sweden'},
+		{imie: 'Penelope', nazwisko: 'Bloom',  wiek: 64, wzrost: 174, ulubione: 'SciFi', narodowość: 'UK'},
+		{imie: 'Bob', nazwisko: 'Jackson',  wiek: 79, wzrost: 143, ulubione: 'Fiction', narodowość: 'Mexic'},
+		{imie: 'Penelope', nazwisko: 'Bloom',  wiek: 64, wzrost: 189, ulubione: 'Horror', narodowość: 'Ireland'},
+		{imie: 'Jennifer', nazwisko: 'Bloom',  wiek: 34, wzrost: 166, ulubione: ['SciFi', 'Musical'] , narodowość: [{country: 'Russia', state: 'Moscow'}]},
+		{imie: 'Eugene', nazwisko: 'Obama',  wiek: 35, wzrost: 156, ulubione: 'Romantic', narodowość: [{country: 'USA', state: 'Washington'}]},
+		{imie: 'Paul', nazwisko: 'Armstrong',  wiek: 32, wzrost: 151, ulubione: 'Horror', narodowość: ['Poland', 'Spain']},
+		{imie: 'Orlando', nazwisko: 'Jackson',  wiek: 36, wzrost: 150, ulubione: 'Fiction', narodowość: 'Portgual'},
+		{imie: 'Michael', nazwisko: 'Bloom',  wiek: 40, wzrost: 186, ulubione: 'Comedy', narodowość: [{country: 'Russia', state: 'Moscow'}]},
+		{imie: 'Mick', nazwisko: 'Guinness',  wiek: 19, wzrost: 182, ulubione: ['SciFi', 'Musical'] , narodowość: 'Sweden'},
+		{imie: 'Penelope', nazwisko: 'Bloom',  wiek: 64, wzrost: 180, ulubione: 'SciFi', narodowość: 'Ireland'},
+		{imie: 'Jessica', nazwisko: 'Plank',  wiek: 32, wzrost: 167, ulubione: 'Thriller', narodowość: 'Belgium'},
+		{imie: 'Mick', nazwisko: 'Jackson',  wiek: 32, wzrost: 156, ulubione: 'Comedy', narodowość: 'UK'},
+		{imie: 'Jennifer', nazwisko: 'Blank',  wiek: 39, wzrost: 180, ulubione: 'Fiction', narodowość: 'Belgium'},
+		{imie: 'Jessica', nazwisko: 'Hux',  wiek: 34, wzrost: 147, ulubione: ['Horror', 'Musical'] , narodowość: [{country: 'Russia', state: 'Moscow'}]},
+		{imie: 'Eugene', nazwisko: 'Plank',  wiek: 46, wzrost: 152, ulubione: 'Fiction', narodowość: [{country: 'Germany', state: 'Bavaria'}]},
+		{imie: 'Orlando', nazwisko: 'Enelope',  wiek: 46, wzrost: 189, ulubione: 'Action', narodowość: 'Belgium'},
+		{imie: 'Mick', nazwisko: 'Blank',  wiek: 46, wzrost: 153, ulubione: 'Romantic', narodowość: ['Spain', 'Ireland']},
+		{imie: 'Mick', nazwisko: 'Guinness',  wiek: 49, wzrost: 152, ulubione: 'Comedy', narodowość: 'Spain'},
+		{imie: 'Jennifer', nazwisko: 'Armstrong',  wiek: 34, wzrost: 164, ulubione: ['SciFi', 'Action'] , narodowość: 'Poland'},
+		{imie: 'Paul', nazwisko: 'Armstrong',  wiek: 33, wzrost: 179, ulubione: 'Romantic', narodowość: 'UK'},
+		{imie: 'Eugene', nazwisko: 'Blank',  wiek: 31, wzrost: 158, ulubione: 'Musical', narodowość: 'Ireland'},
+		{imie: 'Jennifer', nazwisko: 'Enelope',  wiek: 30, wzrost: 143, ulubione: 'Fiction', narodowość: [{country: 'Russia', state: 'Moscow'}]},
+		{imie: 'Penelope', nazwisko: 'Blank',  wiek: 72, wzrost: 149, ulubione: 'Thriller', narodowość: [{country: 'Germany', state: 'Bavaria'}]},
+		{imie: 'Bob', nazwisko: 'Obama',  wiek: 62, wzrost: 148, ulubione: ['Comedy', 'SciFi'] , narodowość: 'Sweden'},
+		{imie: 'Eugene', nazwisko: 'Bloom',  wiek: 52, wzrost: 146, ulubione: 'Horror', narodowość: 'Spain'},
+		{imie: 'Bob', nazwisko: 'Cruise',  wiek: 35, wzrost: 150, ulubione: 'Fiction', narodowość: 'Mexic'},
+		{imie: 'Michael', nazwisko: 'Plank',  wiek: 55, wzrost: 174, ulubione: 'SciFi', narodowość: 'Spain'},
+		{imie: 'Jessica', nazwisko: 'Hux',  wiek: 44, wzrost: 143, ulubione: 'SciFi', narodowość: [[{country: 'Russia', state: 'Moscow'}], 'UK']},
+		{imie: 'Paul', nazwisko: 'Armstrong',  wiek: 32, wzrost: 184, ulubione: ['Comedy', 'Criminal'] , narodowość: 'Ireland'},
+		{imie: 'Bob', nazwisko: 'Blank',  wiek: 32, wzrost: 177, ulubione: 'Musical', narodowość: [{country: 'Germany', state: 'Bavaria'}]},
+		{imie: 'Mick', nazwisko: 'Armstrong',  wiek: 62, wzrost: 167, ulubione: 'Action', narodowość: 'UK'},
+		{imie: 'Paul', nazwisko: 'Jackson',  wiek: 55, wzrost: 184, ulubione: 'Thriller', narodowość: 'Belgium'},
+		{imie: 'Mick', nazwisko: 'Jackson',  wiek: 32, wzrost: 189, ulubione: 'Action', narodowość: 'Canada'},
+		{imie: 'Michael', nazwisko: 'Cruise',  wiek: 34, wzrost: 144, ulubione: ['Comedy', 'SciFi'] , narodowość: [{country: 'USA', state: 'Washington'}]},
+		{imie: 'Penelope', nazwisko: 'Hux',  wiek: 31, wzrost: 142, ulubione: 'Comedy', narodowość: 'Belgium'},
+		{imie: 'Jack', nazwisko: 'Blank',  wiek: 22, wzrost: 147, ulubione: 'Horror', narodowość: [{country: 'USA', state: 'Washington'}]},
+		{imie: 'Jennifer', nazwisko: 'Jackson',  wiek: 33, wzrost: 170, ulubione: 'Fiction', narodowość: 'Spain'},
+		{imie: 'Penelope', nazwisko: 'Guinness',  wiek: 22, wzrost: 175, ulubione: 'SciFi', narodowość: 'Spain'},
+		{imie: 'Jessica', nazwisko: 'Obama',  wiek: 62, wzrost: 176, ulubione: ['SciFi', 'Comedy'] , narodowość: 'Iceland'},
+		{imie: 'Jack', nazwisko: 'Jackson',  wiek: 58, wzrost: 155, ulubione: 'SciFi', narodowość: 'Canada'},
+		{imie: 'Bob', nazwisko: 'Enelope',  wiek: 42, wzrost: 148, ulubione: 'Romantic', narodowość: [{country: 'Russia', state: 'Moscow'}]},
+		{imie: 'Michael', nazwisko: 'Obama',  wiek: 86, wzrost: 185, ulubione: 'Comedy', narodowość: [{country: 'USA', state: 'Washington'}]},
+		{imie: 'Jennifer', nazwisko: 'Bloom',  wiek: 39, wzrost: 189, ulubione: 'Fiction', narodowość: 'France'},
+		{imie: 'Orlando', nazwisko: 'Cruise',  wiek: 39, wzrost: 158, ulubione: ['Action', 'Romantic'] , narodowość: 'Belgium'},
+		{imie: 'Jennifer', nazwisko: 'Cruise',  wiek: 39, wzrost: 175, ulubione: 'Thriller', narodowość: 'Ireland'},
+		{imie: 'Paul', nazwisko: 'Cruise',  wiek: 65, wzrost: 157, ulubione: 'Thriller', narodowość: 'UK'},
+		{imie: 'Paul', nazwisko: 'Plank',  wiek: 69, wzrost: 179, ulubione: 'Musical', narodowość: 'Canada'},
+		{imie: 'Eugene', nazwisko: 'Plank',  wiek: 69, wzrost: 172, ulubione: 'Musical', narodowość: 'Norway'},
+		{imie: 'Orlando', nazwisko: 'Jackson',  wiek: 35, wzrost: 175, ulubione: ['Comedy', 'Musical'] , narodowość: 'Iceland'},
+		{imie: 'Mick', nazwisko: 'Enelope',  wiek: 34, wzrost: 156, ulubione: 'Romantic', narodowość: ['Iceland', 'Portgual']},
+		{imie: 'Jessica', nazwisko: 'Obama',  wiek: 26, wzrost: 179, ulubione: 'Romantic', narodowość: [{country: 'Germany', state: 'Bavaria'}]},
+		{imie: 'Eugene', nazwisko: 'Bloom',  wiek: 27, wzrost: 187, ulubione: 'Thriller', narodowość: 'Mexic'},
+		{imie: 'Michael', nazwisko: 'Cruise',  wiek: 28, wzrost: 171, ulubione: 'Musical', narodowość: 'Spain'}
+	])
+	
+3.
+var myDate  = new Date(2002, 11, 12, 14, 12);
+db.filmy.insert([ //manual generation + outside json
+		{tytuł: 'Tales of Golden Man', date: myDate, reżyser: 'John Lennon',
+		aktorzy: [{nazwa: 'Orlando Cruise', rola:'Golden Man'},{nazwa: 'Mick Jackson', rola:'The Villain'},
+		{nazwa: 'Mick Enelope', rola:'King Harley'}] },
+		{tytuł: 'The Avengers', wydano: 2012, reżyser: 'Joss Whedon',
+		aktorzy: [{nazwa: 'Robert Downey Jr.', rola: 'Iron Man'},{nazwa: 'Chris Evans', rola:'Captain America'},
+		{nazwa: 'Mark Ruffalo', rola: 'Hulk'}]},
+		{tytuł: 'The Lord Of The Rings', wydano: 2001, reżyser: 'Peter Jackson',
+		aktorzy: [{nazwa: 'Ellijah Wood', rola: 'Frodo'},{nazwa: 'Ian McKellen', rola: 'Gandalf'},
+		{nazwa: 'Viggo Mortensen', rola: 'Aragorn'}, {nazwa: 'Sean Bean', rola: 'Boromir'}],
+		część: 'Fellowship of the Ring'},
+		{tytuł: 'The Lord Of The Rings', wydano: 2002, reżyser: 'Peter Jackson',
+		aktorzy: [{nazwa: 'Ellijah Wood', rola: 'Frodo'},{nazwa: 'Ian McKellen', rola: 'Gandalf'},
+		{nazwa: 'Viggo Mortensen', rola: 'Aragorn'}, {nazwa: 'Billy Boyd', rola: 'Pippin'}, {nazwa: 'Christopher Lee', rola: 'Saruman'},
+		{nazwa: 'John Rhys-Davies', rola: 'Gimli'},{nazwa: 'Liv Tyler', rola: 'Arwen'}, {nazwa: 'Hugo Weaving', rola: 'Elrond'}],
+		część: 'The Two Towers'},
+		{tytuł: 'The Lord Of The Rings', wydano: 2003, reżyser: 'Peter Jackson',
+		aktorzy: [{nazwa: 'Ellijah Wood', rola: 'Frodo'},{nazwa: 'Ian McKellen', rola: 'Gandalf'},
+		{nazwa: 'Viggo Mortensen', rola: 'Aragorn'}, {nazwa: 'John Rhys-Davies', rola: 'Gimli'}],
+		część: 'Return of the King'},
+		{tytuł: 'One Flew Over the Cuckoo\'s Nest', wydano: 1975, reżyser: 'Milos Forman',
+		aktorzy: [{nazwa: 'Jack Nicholson', rola: 'Randle Patrick McMurphy'},{nazwa: 'Louise Fletcher', rola:'Siostra Ratched'}]},
+		{tytuł: 'The Shawshank Redemption', wydano: 1994, reżyser: 'Frank Darabont',
+		aktorzy: [{nazwa: 'Tim Robbins', rola: 'Andy Dufresne'},{nazwa: 'Morgan Freeman', rola:'Red'},
+		{nazwa: 'Bob Gunton', rola: 'Naczelnik Samuel Norton'}]},
+		{tytuł: 'The Green Mile', wydano: 1999, reżyser: 'Frank Darabont',
+		aktorzy: [{nazwa: 'Tom Hanks', rola: 'Paul Edgecomb'},{nazwa: 'David Morse', rola:'Brutus "Brutal" Howell'},
+		{nazwa: 'Michael Clarke Duncan', rola: 'John Coffey'}, {nazwa: 'James Cromwell', rola:'Naczelnik Hal Moores'}]},
+		{tytuł: 'Forrest Gump', wydano: 1994, reżyser: 'Robert Zemeckis',
+		aktorzy: [{nazwa: 'Tom Hanks', rola: 'Forrest Gump'},{nazwa: 'Robin Wright', rola:'Jenny Curran'},
+		{nazwa: 'Gary Sinise', rola: 'Porucznik Dan Taylor'}, {nazwa: 'Mykelti Williamson', rola:'Benjamin "Bubba" Bufford-Blue'}]},
+		{tytuł: 'The Pianist', wydano: 2002, reżyser: 'Roman Polański',
+		aktorzy: [{nazwa: 'Adrien Brody', rola: 'Władysław Szpilman'},{nazwa: 'Thomas Kretschmann', rola:'Kapitan Wilm Hosenfeld'}]},
+		{tytuł: 'Inception', wydano: 2010, reżyser: 'Christopher Nolan',
+		aktorzy: [{nazwa: 'Leonardo DiCaprio', rola: 'Cobb'},{nazwa: 'Joseph Gordon-Levitt', rola:'Arthur'},
+		{nazwa: 'Ellen Pheight', rola: 'Ariadne'}, {nazwa: 'Tom Hardy', rola:'Eames'}]},
+		{tytuł: 'Star Wars: Episode V - The Empire Strikes Back', wydano: 1980, reżyser: 'Irvin Kershner',
+		aktorzy: [{nazwa: 'Mark Hamill', rola: 'Luke Skywalker'},{nazwa: 'Harrison Ford', rola:'Han Solo'},
+		{nazwa: 'Carrie Fisher', rola: 'Leia Organa'}, {nazwa: 'Billy Dee Williams', rola:'Lando Calrissian'},
+		{nazwa: 'David Prowse', rola: 'Darth Vader'}]},
+		{tytuł: 'Interstellar', wydano: 2014, reżyser: 'Christopher Nolan',
+		aktorzy: [{nazwa: 'Matther McConaughey', rola: 'Cooper'},{nazwa: 'Anne Hathaway', rola:'Brand'},
+		{nazwa: 'Jessica Chastain', rola: 'Murph'}, {nazwa: 'Ellen Burstyn', rola:'Old Murph'},
+		{nazwa: 'Michael Caine', rola: 'Profesor Brand'}]},
+		{tytuł: 'Star Wars: Episode IV - A New Hope', wydano: 1977, reżyser: 'George Lucas',
+		aktorzy: [{nazwa: 'Mark Hamill', rola: 'Luke Skywalker'},{nazwa: 'Harrison Ford', rola:'Han Solo'},
+		{nazwa: 'Carrie Fisher', rola: 'Leia Organa'}, {nazwa: 'Alec Guinness', rola:'Obi-Wan "Ben" Kenobi'},
+		{nazwa: 'Peter Cushing', rola: 'Tarkin'}]},
+		{tytuł: 'Star Wars: Episode VI - Return of the Jedi', wydano: 1983, reżyser: 'Richard Marquand',
+		aktorzy: [{nazwa: 'Mark Hamill', rola: 'Luke Skywalker'},{nazwa: 'Harrison Ford', rola:'Han Solo'},
+		{nazwa: 'Carrie Fisher', rola: 'Leia Organa'}, {nazwa: 'Billy Dee Williams', rola:'Lando Calrissian'},
+		{nazwa: 'Ian McDiarmid', rola: 'Imperator Sheev Palpatine'}]},
+		{tytuł: 'The Boy in the Striped Pyjamas', wydano: 2008, reżyser: 'Mark Herman',
+		aktorzy: [{nazwa: 'Asa Butterfield', rola: 'Bruno'},{nazwa: 'Jack Scanlon', rola:'Szmul'}]},
+		{tytuł: 'Hacksaw Ridge', wydano: 2016, reżyser: 'Mel Gibson',
+		aktorzy: [{nazwa: 'Andrew Garfield', rola: 'Desmond Thomas Doss'},{nazwa: 'Sam Worthington', rola:'Kapitan Jack Glover'},
+		{nazwa: 'Luke Bracey', rola: 'Smitty Ryker'}, {nazwa: 'Hugo Weaving', rola:'Tom Doss'}]},
+		{tytuł: 'Hobbit', wydano: 2012, reżyser: 'Peter Jackson',
+		aktorzy: [{nazwa: 'Martin Freeman', rola: 'Bilbo Baggins'},{nazwa: 'Ian McKellen', rola:'Gandalf the Grey'},
+		{nazwa: 'Richard Armitage', rola: 'Thorin II Oakenshield'}, {nazwa: 'Ken Stott', rola:'Balin'},
+		{nazwa: 'William Kircher', rola: 'Bifur'},{nazwa: 'James Nesbitt', rola:'Bofur'},
+		{nazwa: 'Stephen Hunter', rola: 'Bombur'},{nazwa: 'Mark Hadlow', rola:'Dori'},
+		{nazwa: 'Graham McTavish', rola: 'Dwalin'},{nazwa: 'Dean O"Gorman', rola:'Fíli'},
+		{nazwa: 'Peter Hambleton', rola: 'Glóin'},{nazwa: 'Aidan Turner', rola:'Kíli'},
+		{nazwa: 'Aidan Turner', rola: 'Kíli'},{nazwa: 'Jed Brophy', rola:'Nori'},
+		{nazwa: 'John Callen', rola: 'Óin'},{nazwa: 'Adam Brown', rola:'Ori'}], część: 'An Unexpected Journey'},
+		{tytuł: 'A Beautiful Mind', wydano: 2001, reżyser: 'Ron Howard',
+		aktorzy: [{nazwa: 'Ed Harris', rola: 'William Parcher'},{nazwa: 'Russell Crowe', rola:'John Forbes Nash Jr.'}]},
+		{tytuł: 'Kontrolny', wydano: 2019, reżyser: 'Mongo DB',
+		aktorzy: [{nazwa: 'BEN HARRIS', rola: 'Ben'},{nazwa: 'CATE HARRIS', rola:'Cate'}]},
+		{tytuł: 'The Lord Of The Rings', wydano: 100, reżyser: 'Mongo DB',
+		toDelete:'true'},
+		{tytuł: 'The Lord Of The Rings', wydano: 10000, reżyser: 'Mongo DB2',
+		toDelete:'true'}
+		]);
+		
+4.	//manual generation
+	db.agenci.insert([
+	{ imie: 'Jan', nazwisko: 'Kowalski', narodowość: 'Polska', klienci: ['Tom Hanks','Mick Enelope']},
+	{ imie: 'Andrzej', nazwisko: 'Nowak', narodowość: 'Polska', korporacja: 'Świt', klienci: ['Tom Doss',{'Andrew Garfield': 'Expired'}] },
+	{ imie: 'John', nazwisko: 'Wick', narodowość: 'USA', korporacja: 'Silver Lion', klienci: ['Mark Hamill',{'Andrew Garfield': 'Expired'}, {'Harrison Ford': 'Expired'}] },
+	{ imie: 'Kevin', nazwisko: 'McGregor', narodowość: 'USA', korporacja: 'Golden Lion', klienci: ['Alec Guiness','Tom Hanks',{'Mykelti Williamson': 'Expired'}]},
+	{ imie: 'Mark', nazwisko: 'GoldenFoot', narodowość: 'UK', klienci: ['Michael Clarke Duncan',{'Jennifer Jackson': 'Expired'}, {'Jennifer Armstrong': 'Expired'}, {'Harrison Ford': 'Expired'}] },
+	{ imie: 'Phillip', nazwisko: 'LeBran', narodowość: 'France', klienci: ['Viggo Mortensen','Mick Enelope',{'Jennifer Jackson': 'Expired'}, {'Christopher Lee': 'Expired'}, {'Mick Jackson': 'Expired'}]},
+	{ imie: 'Hans', nazwisko: 'Van Muller', narodowość: 'Germany', korporacja: 'Deutche Corp', klienci: ['Mark Ruffalo',{'Mykelti Williamson': 'Expired'}] },
+	{ imie: 'Mieszko', nazwisko: 'Wcale nie Pierwszy', narodowość: 'Księstwo Polskie', korporacja: 'Mieszko Corp.', klienci: ['Tom Hanks','Mark Hamill',{'Christopher Lee': 'Expired'}]},
+	{ imie: 'Jake', nazwisko: 'McGregor', narodowość: 'USA', korporacja: 'Golden Lion', klienci: ['Anne Hathaway','Morgan Freeman',{'Frank Darabont': 'Expired'}]},
+	{ imie: 'Niti', nazwisko: 'Toyotaka', narodowość: 'Japan', klienci: ['Luke Bracey','Michael Clarke Duncan',{'Michael Clarke Duncan': 'Expired'}, {'Peter Cushing': 'Expired'}, {'Alec Guinness': 'Expired'}]}
+	]);
+	
+5.	//manual java generation /gui
+	use MKsięgarnia
+	db.książki.insert([{ Nazwa: 'Solaris', Autor: 'Stanisław Lem', RokWydania: 1961, Bohaterowie: ['Kris Kelvin','Snaut','Sartorius']}, 
+	{ Nazwa: 'Harry Potter i Komnata Tajemnic', Autor: 'J.K. Rowling', RokWydania: 1998, Bohaterowie: ['Harry Potter','Hermione Granger','Draco Malfoy','Professor Albus Dumbledore','Gilderoy Lockhart','Ron Weasley']}, 
+	{ Nazwa: 'Hobbit', Autor: 'John Ronald Reuel Tolkien', RokWydania: 1937, Bohaterowie: ['Bilbo Baggins','Fili','Kili','Oin','Gloin','Bifur','Bofur','Bombur','Dori','Nori','Dwalin','Balin','Dain','Nain','Thorin','Gandalf','Azog','Smaug']}, 
+	{ Nazwa: 'Lew, czarownica i stara szafa', Autor: 'C.S. Lewis', RokWydania: 1950, Bohaterowie: ['Piotr','Edmund','Zuzanna','Łucja','Aslan']}, 
+	{ Nazwa: 'Książe Kaspian', Autor: 'C.S. Lewis', RokWydania: 1951, Bohaterowie: ['Kaspian','Piotr','Edmund','Zuzanna','Łucja','Aslan']}, 
+	{ Nazwa: 'Lalka', Autor: 'Bolesław Prus', RokWydania: 1890, Bohaterowie: ['Stanisław Wokulski','Izabela Łęcka','Ignacy Rzecki','Julian Ochocki']}, 
+	{ Nazwa: 'Niezwyciężony', Autor: 'Stanisław Lem', RokWydania: 1964, Bohaterowie: ['Rohan','Horpach','Ballmin','Lauda']}, 
+	{ Nazwa: 'Łatwo być bogiem', Autor: 'Robert J. Szmidt', RokWydania: 2014, Bohaterowie: ['Henryan Święcki','Nike','Valdez','Iarrey','Morrisey','Bourne']}, 
+	{ Nazwa: 'Igrzyska śmierci', Autor: 'Suzanne Collins', RokWydania: 2008, Bohaterowie: ['Katniss Everdeen','Peeta Mellark','Haymitch Abernathy','Gale Hawthorne']}, 
+	{ Nazwa: 'Ojciech Chrzestny', Autor: 'Mario Puzo', RokWydania: 1969, Bohaterowie: ['Don Vito Corleone','Carmela','Santino "Sonny"','Frederico "Fredo"','Constanzia "Connie"','Michael']}, 
+	{ Nazwa: 'Krzyżacy', Autor: 'Henryk Sienkiewicz', RokWydania: 1900, Bohaterowie: ['Danusia Juandówna','Jagienka ze Zgorzelic','Jurand ze Spychowa','Maćko z Bogdańca','Zbyszko z Bogdańca']}, 
+	{ Nazwa: 'Hamlet', Autor: 'William Szekspir', RokWydania: 1600, Bohaterowie: ['Hamlet','Król Klaudiusz','Królowa Gertruda','Król Hamlet','Ofelia']}, 
+	{ Nazwa: 'The Lord Of The Rings', Autor: 'John Ronald Reuel Tolkien', RokWydania: 1954, Bohaterowie: ['Aragorn','Gandalf','Saruman','Sauron','Boromir','Legolas','Gimli','Pippin','Merry','Sam','Frodo','Elrond']},
+	{ Nazwa: 'Dzieci Hurina', Autor: 'Christopher Tolkien', RokWydania: 2007, Bohaterowie: ['Hurin','Nienor','Niniel','Turin','Morwena']},
+	])
+
+6.	
+	use MKsięgarnia
+	show db.collections
+	
+7.
+	db.filmy.find({},{title:1, director:1, _id:0});
+	
+8.
+
+	db.aktorzy.find(
+		{
+			$or:
+				[{ $and:
+					[{imie: 
+						{ $eq: 'Hugh'} }, 
+					{narodowość:
+						{ $eq: 'Australian'} }
+					]
+					
+				},
+				{ imie:
+					{ $eq: 'Paul'} } //x!!!!!!!!!!
+				]
+		},
+		{
+			_id: 0
+		}
+		
+		);
+
+9.
+	
+	db.filmy.aggregate([
+	
+		{$project: {
+				tytuł: 1,
+				aktorzy: 1,
+				numberOfActors: { $cond: { if: { $isArray: "$aktorzy" }, then: { $size: "$aktorzy" }, else: 0} }
+					}
+		},
+		{$match: {
+			"numberOfActors": {$gte: 7}}////
+		},
+		{$skip: 1},
+		{$project: {
+				tytuł: 1
+		}}
+	])
+	
+10.		
+
+	db.aktorzy.aggregate([
+		{
+			$match: {nazwisko: { $eq: 'HARRIS' }}
+		},
+		{
+			$lookup:
+			{
+				from: 'filmy',
+				let: { nazwaA: {$concat: ['$imie',' ','$nazwisko']}},
+				pipeline:[
+					{ $unwind: '$aktorzy'},
+					{ $match:
+						{ $expr: 
+							{ $eq: [ '$nazwa','$$nazwaA' ] }
+						}
+					}],
+				as: 'result'
+			}
+		}
+		
+	]).pretty();
+
+11.
+
+
+	db.aktorzy.remove(
+	{ $and: [ {ulubione: {$elemMatch: { $eq: 'Comedy'}}}, {ulubione: {$elemMatch: { $eq: 'Criminal'}}} ] })
+	
+
+12.
+	
+	db.aktorzy.updateMany(
+		{ 
+			'narodowość.country': {$eq: 'Russia'}
+		},
+		{ 	
+			'$set': { 'narodowość.$': 'Russia'},
+		}
+	)
+
+13.
+
+	db.aktorzy.find({ imie: {$exists: true}},{_id:0,imie:1,nazwisko:1,narodowość:1,wiek:1}).sort({ wiek: 1})
+
+14.
+	//zrzeszeni
+	db.agenci.aggregate([
+		{
+			$project:
+			{
+				"name" : { $concat : [ "$imie", " ", "$nazwisko" ] },
+				korporacja: 1
+			}
+		},
+		{
+			$match: {
+				"name": {$regex: '^[^qvxQVX]*$|^(.*Kevin).*$'},
+				korporacja: { $exists: true } 
+			}
+		}
+	])
+15.
+
+	db.getSiblingDB('MKsięgarnia').książki.find({},{Nazwa:1, _id:0});
+
+16.
+	//IT`S NOT POSSIBLE TO USE SIBLING DATABASE IN AGGREGATE - mongodb docs
+	//SO WE WILL MAKE A COPY
+	mongodump -d MKsięgarnia -c książki -o C:/data/db/dump
+	mongorestore -d MFilmoteka -c książki C:/data/db/dump/MKsięgarnia/książki.bson
+
+	db.książki.aggregate([
+	{$lookup:
+        {
+            from: 'filmy',
+            localField: 'Nazwa',
+            foreignField: 'tytuł',//1!!!
+            as: 'result'
+        }
+	},
+	{$match: 
+		{ 
+			'result': { $ne: [] } 
+		}
+	},
+	{$project:
+		{
+			_id:0,
+			'result.tytuł':1,
+			'result.reżyser':1,
+			Autor:1,
+			Nazwa:1
+		}
+	}	
+	]).pretty();
+
+17.
+
+	db.książki.aggregate([
+	{$lookup:
+        {
+            from: 'filmy',
+			let: { nazwaKsiążki: '$Nazwa', dataWydaniaKsiążki: '$RokWydania', bohaterowieKsiążki: '$Bohaterowie'},
+			pipeline:[
+					{ $match:
+						{ $expr: 
+							{ $and: [
+									{ $eq: [ '$tytuł','$$nazwaKsiążki' ] },
+									{ $gte: [ '$wydano','$$dataWydaniaKsiążki' ] }
+								]
+							}
+						}
+					}
+			],
+            as: 'result'
+        }
+	},
+	{$unwind: '$result'},
+	{$addFields: 	
+		{
+			inter: {$setIntersection: ['$result.aktorzy.rola','$Bohaterowie']}
+		}
+	},
+	{$match: 
+		{ 
+			'result': { $ne: [] },
+			'inter': { $ne: null }
+		}
+	}
+	]).pretty();
+	
+	
+
+
+
+
