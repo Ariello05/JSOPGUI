@@ -5,7 +5,7 @@
 
 Database was created with MySQL, [build script.](https://github.com/Ariello05/DB-cs-studies/blob/master/project/BuildScript.sql)
 
-Simplistic GUI created in Java on Swing.
+More in project folder.
 
 ## Exercises
 Database course done mainly in MySQL.
